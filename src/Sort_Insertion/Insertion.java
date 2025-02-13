@@ -5,7 +5,7 @@ package Sort_Insertion;
 public class Insertion {
     public static void main(String[] args){
         System.out.println("\n----------------------------------insertSort----------------------------------\n");
-        int[] array = {4,9,5,6,8,4,6,2,65,6,6,5,1,5,57,8,9632};
+        int[] array = {4,9,56,8,4,6,2,65,66,5,15,57,8,96,32};
         //int[] array = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20};
         //reverse(array);
         foreach(array);
