@@ -53,8 +53,11 @@ public class bubble{
 
     //遍历数组方法
     public static void foreach(int[] array){
-        for(int i = 0;i<array.length;i++){
-            System.out.print(array[i]+"\t");
+//        for(int i = 0;i<array.length;i++){
+//            System.out.print(array[i]+"\t");
+//        }
+        for(int arr:array){
+            System.out.print(arr+"\t");
         }
     }
 
