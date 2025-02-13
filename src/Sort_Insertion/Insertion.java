@@ -25,13 +25,20 @@ public class Insertion {
         }
         //遍历无序数组进行插入排序
         for(int index = orderListEnd+1;index<array.length;index++){
-            int tempIndex = index;
-            for(int j = tempIndex-1;j>=0;j--){
-                if(array[tempIndex]<array[j]){
+//            int tempIndex = index;
+//            for(int j = tempIndex-1;j>=0;j--){
+//                if(array[tempIndex]<array[j]){
+//                    int temp = array[j];
+//                    array[j] = array[tempIndex];
+//                    array[tempIndex] = temp;
+//                    tempIndex--; //始终要保证j=tempIndex-1，确保实现相邻元素交换
+//                }
+//            }
+            for(int j = index;j>0;j--){
+                if(array[j]<array[j-1]){
                     int temp = array[j];
-                    array[j] = array[tempIndex];
-                    array[tempIndex] = temp;
-                    tempIndex--; //始终要保证j=tempIndex-1，确保实现相邻元素交换
+                    array[j] = array[j-1];
+                    array[j-1]=temp;
                 }
             }
             foreach(array);
