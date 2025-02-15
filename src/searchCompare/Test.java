@@ -25,6 +25,9 @@ public class Test {
         //System.out.println(Instant.now());
         long c=currentTimeMillis();
         System.out.println(index1+","+index2);
+        if(index1!=-1){
+            System.out.println(arrSort[index1]+","+arrSort[index2]);
+        }
         System.out.println(b-a);
         System.out.println(c-b);
     }
