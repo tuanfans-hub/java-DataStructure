@@ -1,8 +1,7 @@
 package searchCompare;
 
-import static java.lang.System.currentTimeMillis;
-
 public class searchCompare {
+    //二分查找
     public static int search01(int[] arr,int target){
         int i=0;
         int j=arr.length;
@@ -20,6 +19,7 @@ public class searchCompare {
         return -1;
     }
 
+    //基本查找
     public static int search02(int[] arr,int target){
         for(int i=0;i<arr.length;i++){
             if(arr[i]==target){
