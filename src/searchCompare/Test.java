@@ -1,46 +1,57 @@
 package searchCompare;
 
-import java.util.Random;
+import Sorts.quickSorting;
 
-import static java.lang.System.currentTimeMillis;
+import java.util.Random;
+import java.util.Scanner;
 
 public class Test {
     public static void main(String[] args){
         Random rand = new Random();
-        int[] arr = new int[100000];
+        Scanner sc = new Scanner(System.in);
+
+        //测试数组的长度
+        System.out.print("测试数组的长度(<100000000)：");
+        int arrLength = sc.nextInt();
+
+        //随机数生成范围
+        System.out.print("随机数生成范围(<int的最大值)：");
+        int randNumber = sc.nextInt();
+
+        Integer[] arr = new Integer[arrLength];
         for(int i = 0;i<arr.length;i++){
-            arr[i]=rand.nextInt(10000);
+            arr[i]=rand.nextInt(randNumber);
         }
-        int[] arrSort = sort(arr);
-        int target = rand.nextInt(1000);
-        System.out.println(target);
-        long a=currentTimeMillis();
+        //排序前数组
+        //sortsFunction.foreach(arr);
+        //System.out.println();
 
-        //System.out.println(Instant.now());
-        int index1 = searchCompare.search01(arrSort,target);
-        //System.out.println(Instant.now());
-        long b=currentTimeMillis();
+        quickSorting.sort(arr);
+        //排序后数组
+        //sortsFunction.foreach(arr);
+        //System.out.println();
 
-        int index2 = searchCompare.search02(arrSort,target);
-        //System.out.println(Instant.now());
-        long c=currentTimeMillis();
-        System.out.println(index1+","+index2);
-        System.out.println(b-a);
-        System.out.println(c-b);
+        int target = rand.nextInt(randNumber);
+        System.out.println("\n待查找的元素："+target);
+
+        long a=System.currentTimeMillis();
+        int index1 = searchCompare.search01(arr,target);
+
+        long b=System.currentTimeMillis();
+        int index2 = searchCompare.search02(arr,target);
+
+        long c=System.currentTimeMillis();
+
+        //ArrayList<Integer> list = searchCompare.search(arr,target);
+        //System.out.println("元素等于"+target+"的索引："+list);
+        //System.out.println("元素等于"+target+"索引总计："+list.size()+"个");
+
+        //优化：使用基本数据类型减少堆内存的占用
+        System.out.println("元素等于"+target+"索引总计："+searchCompare.getCount(arr,target)+"个");
+
+        System.out.println("二分查找index1="+index1+"，"+"runtime="+(b-a)+"ms（index=-1表示无该元素）");
+        System.out.println("基本查找index2="+index2+"，"+"runtime="+(c-b)+"ms（index=-1表示无该元素）");
+
     }
 
-    //排序算法
-    public static int[] sort(int[] arr){
-        int n = arr.length-1;
-        for(int j = 0;j<n;n--){
-            for(int i = 1;i<n-j;i++){
-                if(arr[i]<arr[i-1]){
-                    int temp = arr[i-1];
-                    arr[i-1]=arr[i];
-                    arr[i]=temp;
-                }
-            }
-        }
-        return arr;
-    }
 }
